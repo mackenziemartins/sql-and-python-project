@@ -32,7 +32,9 @@ def userLogin():
         cursor.fetchall()
     except psycopg2.Error as e:
         print("Something went wrong, please try again.")
-        print(e.diag.message_hint)
+        print(e.diag.message_hint
+        conn.close()
+        exit())
     return status, username
 
 # gets the users memberID/adminID/trainerID from the respective table
@@ -45,6 +47,8 @@ def getID(status, username):
         except psycopg2.Error as e:
             print("Something went wrong retrieving your ID number, please try again.")
             print(e.diag.message_hint)
+            conn.close()
+            exit()
     elif status == "Trainers":
         try:
             SQL = "SELECT trainer_id FROM trainers WHERE username = %s"
@@ -53,6 +57,8 @@ def getID(status, username):
         except psycopg2.Error as e:
             print("Something went wrong retrieving your ID number, please try again.")
             print(e.diag.message_hint)
+            conn.close()
+            exit()
     elif status == "admins":
         try:
             SQL = "SELECT admin_id from MEMBERS where username = %s"
@@ -61,14 +67,30 @@ def getID(status, username):
         except psycopg2.Error as e:
             print("Something went wrong retrieving your ID number, please try again.")
             print(e.diag.message_hint)
+            conn.close()
+            exit()
 
 # functon that allows a user to register for the platform as a MEMBER
 def registerMember():
     pass
 
 # function that allows an ADMIN user to change a users role from member -> trainer
-def promoteTrainer():
-    pass
+def createTrainer():
+    print("Congrats on hiring a new staff member! Let's work on getting them set up in the system.\n")
+    fname = input("Please enter the trainers first name: ")
+    lname = input("Please enter the trainers last name: ")
+    user = input("Please enter a username for the trainer to use: ")
+    password = input("Please enter a password for the trainer to use: ")
+    try:
+        SQL = "INSERT INTO trainers (first_name, last_name, username, pass) VALUES (%s, %s, %s, %s)"
+        DATA = (fname, lname, user, password)
+        cursor.execute(SQL, DATA)
+        conn.commit()
+    except psycopg2.Error as e:
+        print("Something went wrong creating the Trainer entry, please try again.")
+        print(e.diag.message_hint)
+        conn.close()
+        exit()
 
 # function that allows a TRAINER user to lookup a MEMBER user by name
 def memberLookup():
