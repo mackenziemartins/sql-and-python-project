@@ -11,7 +11,6 @@ conn = psycopg2.connect(database =  "FINAL3005",
 
 cursor = conn.cursor
 
-
 # function that checks the users role, then takes their login information.
 def userLogin():
     print("Welcome to the login page, please indicate your status.")
@@ -74,7 +73,7 @@ def getID(status, username):
 def registerMember():
     pass
 
-# function that allows an ADMIN user to change a users role from member -> trainer
+# function that allows an ADMIN user to register a users as a TRAINER type
 def createTrainer():
     print("Congrats on hiring a new staff member! Let's work on getting them set up in the system.\n")
     fname = input("Please enter the trainers first name: ")
