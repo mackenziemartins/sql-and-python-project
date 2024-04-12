@@ -1,27 +1,30 @@
+-- COMP 3005 B Project V2
+-- Kareem Kaddoura (101140255)
+-- Mackenzie Martins (101228049)
 -- Club Database DDL
 
 CREATE TABLE Members (
     member_id		SERIAL PRIMARY KEY,
-	first_name		VARCHAR(20) NOT NULL,
-	last_name		VARCHAR(20) NOT NULL,
-	username		VARCHAR(20) UNIQUE NOT NULL,
-    password        VARCHAR(20) NOT NULL
+	first_name		VARCHAR(255) NOT NULL,
+	last_name		VARCHAR(255) NOT NULL,
+	username		VARCHAR(255) UNIQUE NOT NULL,
+    password        VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Trainers (
     trainer_id		SERIAL PRIMARY KEY,
-	first_name		VARCHAR(20) NOT NULL,
-	last_name		VARCHAR(20) NOT NULL,
-	username		VARCHAR(20) UNIQUE NOT NULL,
-    password        VARCHAR(20) NOT NULL
+	first_name		VARCHAR(255) NOT NULL,
+	last_name		VARCHAR(255) NOT NULL,
+	username		VARCHAR(255) UNIQUE NOT NULL,
+    password        VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Admins (
     admin_id		SERIAL PRIMARY KEY,
-	first_name		VARCHAR(20) NOT NULL,
-	last_name		VARCHAR(20) NOT NULL,
-	username		VARCHAR(20) UNIQUE NOT NULL,
-    password        VARCHAR(20) NOT NULL
+	first_name		VARCHAR(255) NOT NULL,
+	last_name		VARCHAR(255) NOT NULL,
+	username		VARCHAR(255) UNIQUE NOT NULL,
+    password        VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Health_metrics (
@@ -30,9 +33,9 @@ CREATE TABLE Health_metrics (
 	date			DATE,
 	height			INT,
 	weight			INT,
-	mile_time		INT,
+	mile_time		TIME,
 	resting_hr		INT,
-	blood_pressure	INT,
+	blood_pressure	VARCHAR(255),
 	FOREIGN KEY (member_id)
 		references Members
 );
@@ -42,24 +45,37 @@ CREATE TABLE Goals (
     member_id	    	INT,
 	goal_weight			INT,
 	goal_mile_time		TIME,
-	goal_bench_pr		INT,
-	goal_squat_pr		INT,
-	goal_deadlift_pr	INT,
-	goal_plank_pr		INT,
+	goal_bench			INT,
+	goal_squat			INT,
+	goal_deadlift		INT,
+	goal_plank			TIME,
+	FOREIGN KEY (member_id)
+		references Members
+);
+
+CREATE TABLE Achievements (
+	achievement_id	SERIAL PRIMARY KEY,
+	member_id		INT,
+	a_weight		INT,
+	a_mile_time		TIME,
+	a_bench_pr		INT,
+	a_squat_pr		INT,
+	a_deadlift_pr	INT,
+	a_plank_pr		TIME,
 	FOREIGN KEY (member_id)
 		references Members
 );
 
 CREATE TABLE Rooms (
 	room_id         SERIAL PRIMARY KEY,
-    room_name       VARCHAR(20),
+    room_name       VARCHAR(255),
 	max_members		INT
 );
 
 CREATE TABLE Routines (
 	routine_id		SERIAL PRIMARY KEY,
-	routine_type	VARCHAR(20),
-	routine_desc	VARCHAR(20)
+	routine_type	VARCHAR(255),
+	routine_desc	VARCHAR(255)
 );
 
 CREATE TABLE Personal_sessions (
@@ -108,7 +124,7 @@ CREATE TABLE Class_registration (
 CREATE TABLE Trainer_availability (
 	availability_id		SERIAL PRIMARY KEY,
 	trainer_id			INT,
-	date				DATE,
+	day					VARCHAR(255),
 	start_time			TIME,
 	end_time			TIME,
 	FOREIGN KEY (trainer_id)
@@ -118,15 +134,15 @@ CREATE TABLE Trainer_availability (
 CREATE TABLE Billing (
 	bill_id			SERIAL PRIMARY KEY,
 	member_id		INT,
-	bill_desc		VARCHAR(20),
+	bill_desc		VARCHAR(255),
 	bill_amount		DEC(5, 2),
 	due_date		DATE,
-	bill_paid		BOOLEAN
+	bill_paid		BOOL
 );
 
 CREATE TABLE Equipment (
     equipment_id				SERIAL PRIMARY KEY,
-	equipment_type				VARCHAR(20),
+	equipment_type				VARCHAR(255),
 	upcoming_maintenance_date	DATE,
 	last_maintenance_date		DATE
 );
