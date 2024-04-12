@@ -43,6 +43,7 @@ CREATE TABLE Health_metrics (
 CREATE TABLE Goals (
 	goal_id				SERIAL PRIMARY KEY,
     member_id	    	INT,
+	date				DATE,
 	goal_weight			INT,
 	goal_mile_time		TIME,
 	goal_bench			INT,
