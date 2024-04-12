@@ -93,7 +93,17 @@ def createTrainer():
 
 # function that allows a TRAINER user to lookup a MEMBER user by name
 def memberLookup():
-    pass
+    print("Lets take a look at some of the gym members - this will help you reach out to potential clients.\n")
+    ID = input("Enter the memberID of the user you would like to look up:")
+    try:
+        SQL = "SELECT * FROM members WHERE member_id = %s"
+        cursor.execute(SQL, ID)
+        cursor.fetchall()
+    except psycopg2.Error as e:
+        print("Something went wrong in the lookup, please try again.")
+        print(e.diag.message_hint)
+        conn.close()
+        exit()
 
 # function allowing a USER member to edit any information related to their account.
 # uses helper functions
