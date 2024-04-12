@@ -68,6 +68,7 @@ def getID(status, username):
             print(e.diag.message_hint)
             conn.close()
             exit()
+    return ID
 
 # functon that allows a user to register for the platform as a MEMBER
 def registerMember():
@@ -121,13 +122,21 @@ def main():
         if inp == "1":
             pass
         elif inp == "2":
-            pass
+            status = userLogin()
+            userID = getID(status)
+            flag2 = True
+            while flag2 == True:
+                print("Now that you're logged in, what would you like to do?")
+                if status == "members":
+                    inp = input("1. Profile Management\n2. Dashboard Display\n3. Schedule Management\n")
+                elif status == "trainers":
+                    inp = input("1.Schedule Management\n2. Member Profile Viewing\n")
+                elif status == "admins":
+                    inp = input("1. Room Management\n2. Equipment Maintenance Monitoring\n3. Class Schedule Updating\n4. Billing and Payment Processing")
         elif inp == "3":
             flag = False
         else:
             print("\nInvalid Inputs were provided, please try again.")
-
-
 
 
 main()
