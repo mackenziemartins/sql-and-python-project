@@ -33,16 +33,10 @@ VALUES
 (3, '2024-04-11', 178, 61, '00:08:03', 72, '115/68');
 
 -- Popualte Goals Table
-INSERT INTO Goals (member_id, date, goal_weight, goal_mile_time, goal_bench, goal_squat, goal_deadlift, goal_plank)
+INSERT INTO Goals (member_id, goal_weight, goal_mile_time, goal_bench, goal_squat, goal_deadlift, goal_plank)
 VALUES
-(1, '2024-04-05', 70, '00:08:00', 150, 200, 200, '00:02:00'),
-(2, '2024-04-06', 55, '00:09:00', 135, 250, 180, '00:03:00');
-
--- Populate Achievements Table
-INSERT INTO Achievements (member_id, a_weight, a_mile_time, a_bench_pr, a_squat_pr, a_deadlift_pr, a_plank_pr)
-VALUES
-(1, 67, '00:08:25', 130, 150, 180, '00:01:45'),
-(2, 58, '00:09:30', 110, 200, 160, '00:02:40');
+(1, 70, '00:08:00', 150, 200, 200, '00:02:00'),
+(2, 55, '00:09:00', 135, 250, 180, '00:03:00');
 
 -- Populate Rooms Table
 INSERT INTO Rooms (room_name, max_members)
