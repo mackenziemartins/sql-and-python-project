@@ -57,15 +57,15 @@ VALUES
 -- Populate Personal_sessions Table
 INSERT INTO Personal_sessions (routine_id, trainer_id, member_id, room_id, date, start_time, end_time)
 VALUES
-(1, 2, 1, 1, '2024-04-12', '00:09:00', '00:10:00'),
-(2, 1, 3, 1, '2024-04-11', '00:10:00', '00:11:00'),
-(3, 2, 4, 1, '2024-04-12', '00:11:00', '00:12:00');
+(1, 2, 1, 1, '2024-04-12', '09:00:00', '10:00:00'),
+(2, 1, 3, 1, '2024-04-11', '10:00:00', '11:00:00'),
+(3, 2, 4, 1, '2024-04-12', '11:00:00', '12:00:00');
 
 -- Populate Group_classes Table
 INSERT INTO Group_classes (routine_id, trainer_id, room_id, date, start_time, end_time)
 VALUES
-(2, 1, 2, '2024-04-12', '00:12:00', '00:13:00'),
-(4, 3, 4, '2024-04-12', '00:13:00', '00:14:00');
+(2, 1, 2, '2024-04-12', '12:00:00', '13:00:00'),
+(4, 3, 4, '2024-04-12', '13:00:00', '14:00:00');
 
 -- Populate Class_registration Table
 INSERT INTO Class_registration (member_id, class_id)
@@ -79,21 +79,21 @@ VALUES
 -- Populate Trainer_availability Table
 INSERT INTO Trainer_availability (trainer_id, day, start_time, end_time)
 VALUES
-(1, 'Monday', '00:09:00', '00:17:00'),
-(1, 'Tuesday', '00:09:00', '00:17:00'),
-(1, 'Wednesday', '00:09:00', '00:17:00'),
-(1, 'Thursday', '00:09:00', '00:17:00'),
-(1, 'Friday', '00:09:00', '00:17:00'),
-(2, 'Monday', '00:09:00', '00:17:00'),
-(2, 'Tuesday', '00:09:00', '00:17:00'),
-(2, 'Wednesday', '00:09:00', '00:17:00'),
-(2, 'Thursday', '00:09:00', '00:17:00'),
-(2, 'Friday', '00:09:00', '00:17:00'),
-(3, 'Monday', '00:09:00', '00:17:00'),
-(3, 'Tuesday', '00:09:00', '00:17:00'),
-(3, 'Wednesday', '00:09:00', '00:17:00'),
-(3, 'Thursday', '00:09:00', '00:17:00'),
-(3, 'Friday', '00:09:00', '00:17:00');
+(1, 'Monday', '09:00:00', '17:00:00'),
+(1, 'Tuesday', '09:00:00', '17:00:00'),
+(1, 'Wednesday', '09:00:00', '17:00:00'),
+(1, 'Thursday', '09:00:00', '17:00:00'),
+(1, 'Friday', '09:00:00', '17:00:00'),
+(2, 'Monday', '09:00:00', '17:00:00'),
+(2, 'Tuesday', '09:00:00', '17:00:00'),
+(2, 'Wednesday', '09:00:00', '17:00:00'),
+(2, 'Thursday', '09:00:00', '17:00:00'),
+(2, 'Friday', '09:00:00', '17:00:00'),
+(3, 'Monday', '09:00:00', '17:00:00'),
+(3, 'Tuesday', '09:00:00', '17:00:00'),
+(3, 'Wednesday', '09:00:00', '17:00:00'),
+(3, 'Thursday', '09:00:00', '17:00:00'),
+(3, 'Friday', '09:00:00', '17:00:00');
 
 -- Populate Billing Table
 INSERT INTO Billing (member_id, bill_desc, bill_amount, due_date, bill_paid)
