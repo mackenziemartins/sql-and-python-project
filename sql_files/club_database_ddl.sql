@@ -43,26 +43,12 @@ CREATE TABLE Health_metrics (
 CREATE TABLE Goals (
 	goal_id				SERIAL PRIMARY KEY,
     member_id	    	INT,
-	date				DATE,
 	goal_weight			INT,
 	goal_mile_time		TIME,
 	goal_bench			INT,
 	goal_squat			INT,
 	goal_deadlift		INT,
 	goal_plank			TIME,
-	FOREIGN KEY (member_id)
-		references Members
-);
-
-CREATE TABLE Achievements (
-	achievement_id	SERIAL PRIMARY KEY,
-	member_id		INT,
-	a_weight		INT,
-	a_mile_time		TIME,
-	a_bench_pr		INT,
-	a_squat_pr		INT,
-	a_deadlift_pr	INT,
-	a_plank_pr		TIME,
 	FOREIGN KEY (member_id)
 		references Members
 );
