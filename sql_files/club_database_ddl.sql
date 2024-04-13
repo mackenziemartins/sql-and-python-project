@@ -94,6 +94,8 @@ CREATE TABLE Personal_sessions (
 		references Trainers,
 	FOREIGN KEY (member_id)
 		references Members
+	FOREIGN KEY (room_id)
+		references Rooms
 );
 
 CREATE TABLE Group_classes (
