@@ -93,7 +93,7 @@ CREATE TABLE Personal_sessions (
 	FOREIGN KEY (trainer_id)
 		references Trainers,
 	FOREIGN KEY (member_id)
-		references Members
+		references Members,
 	FOREIGN KEY (room_id)
 		references Rooms
 );
